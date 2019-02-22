@@ -27,7 +27,7 @@ Building the Magic Piano in Web Audio API has several advantages that fit our pu
 
 ##Developing The Magic Piano
 
-### Early Development
+### Midi Messages 
 As this project was to be developed using web technologies, we wanted to use some libraries to make the build process easier and faster. We decided to use NexusUI’s (https://nexus-js.github.io/ui/api/#Piano) piano keyboard interface, and the framework Tone.js to generate sound. We knew we wanted to trigger sound using a MIDI-keyboard, and luckily for us, our teacher Anna Xambó had already provided us with a javaScript code snippet which accepts MIDI-data. We could then create a function which handled this data, to be used for triggering a note of a melody. (remove? I will come back to this functionality later in the blog.)
 
 ***ENTER ANNA'S CODE SNIPPET HERE***
@@ -35,10 +35,43 @@ As this project was to be developed using web technologies, we wanted to use som
 ### The Melody Player
 Before adding a function which would play through a melody with each piano keystrokes, we branched out from the main idea, to start developing the functionality of playing through a melody using a start and stop buttons. Adding the player function would give the user the possibility to listen to the song before playing it by themselfs. This feature would be very helpfull for beginners who are not familier with the song or would just like to refreash their memory.
 
-### Mid process
+### Midi To JSON
 As we were going to use the same melody for playback as well as for the user interaction, we first came up with an idea to play through a MIDI-file. It ended up being challenging getting javaScript to handle MIDI-data. We tried to implement a library called MidiPlayerJS to get it to work, but the library itself seemed to have some fault, preventing it from working. 
 
-As JSON (JavaScript Object Notation) is a file format used for storing and transporting text data (https://www.w3schools.com/whatis/whatis_json.asp), and we knew it was easy to handle for javaScript, we started looking for ways to convert MIDI-files to JSON-files. It didn’t take long before we found an easy way to convert, using a website called https://www.visipiano.com/midi-to-json-converter/. Guy had made the ABCD-song in Ableton, and exported it as MIDI. The only thing we had to do, was to drag it into this website, and then download it as a JSON-file, ready for implementation.
+As JSON (JavaScript Object Notation) is a file format used for storing and transporting text data (https://www.w3schools.com/whatis/whatis_json.asp), and we knew it was easy to handle for javaScript, we started looking for ways to convert MIDI-files to JSON-files. It didn’t take long before we found an easy way to convert, using a website called https://www.visipiano.com/midi-to-json-converter/. Using Ableton, Guy created the midi files for the two songs we were about to use (ABCD and Allefugler). The only thing we had to do, was to drag it into this website, and then download it as a JSON-file, ready for implementation.
 
+### Extracting JSON Data
+The code below shows 32 of 321 lines of the JSON-file containing all the data needed for playing the ABCD-song. The syntax is identical to javaScript code for creating objects, which makes it easy for javaScript to work with. The file is constructed in an object, with more nested objects, where every object has key-value pairs. From line 18 you can see the key called “notes”, which has an array of all the note information of the melody as its value.
 
-
+    //{
+    "header": {
+      "PPQ": 96,
+      "timeSignature": [
+        4,
+        4
+      ],
+      "bpm": 120,
+      "name": "ABCD"
+    },
+    "startTime": 0,
+    "duration": 24,
+    "tracks": [
+      {
+        "startTime": 0,
+        "duration": 24,
+        "length": 42,
+        "notes": [
+          {
+            "name": "C5",
+            "midi": 72,
+            "time": 0,
+            "velocity": 0.7952755905511811,
+            "duration": 0.5
+          },
+          {
+            "name": "C5",
+            "midi": 72,
+            "time": 0.5,
+            "velocity": 0.7952755905511811,
+            "duration": 0.5
+          },
