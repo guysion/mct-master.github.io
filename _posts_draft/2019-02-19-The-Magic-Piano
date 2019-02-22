@@ -10,6 +10,16 @@ Keywords: Web Audio API, JavaScript, Tone.js, CSS, NexusUI, JSON, Piano, Educati
 ---
 
 # The Magic Piano
+
 During our second week learning about Audio programing and web Audio API we were divided into groups and had to come up with an idea for a final project. The main challenges were to find an idea that is doable within 4 days, to code collaboratively and to prepare for the presentation of our project. Guy had an Idea for building a piano keyboard that will help beginners play a simple melody and Ashane and Jørgen agreed to collaborate and join forces in creating ‘The Magic Piano’.
 
-##
+## The Idea
+Guy: I was inspired by my daughter's attraction to music when I came up with the Idea for the magic piano. I remember asking her to play a melody on the piano for a song she knows well and can sing in pitch. My daughter do not know how to play the piano, but when she tried to perform the task she managed to play the right melodic rhythm (but with the wrong notes). That sparked the idea for creating a piano that will play the right notes of the chosen melody regardless if the player hits the right or wrong keynote.
+
+## Why Web Audio API?
+Building the Magic Piano in Web Audio API has several advantages that fit our purpose. The application is available for anyone with internet access, there is no need for installation and no dependence on specific operating system. All you need is a web browser, speakers and a midi controller to start playing with it. After a short discussion, we came up with additional features that we would like to implement:
+- Choosing a song from a scroll down menu.
+- Adding a simple player with Play and Stop buttons to hear the melody.
+- Highlighted piano keys showing the next correct note of the song.
+- Having the option to scale the app for various screen sizes.
+
